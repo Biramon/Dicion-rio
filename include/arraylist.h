@@ -70,7 +70,6 @@ public:
 	bool insert (Key _novaId, Data _novaInfo );
 };
 
-//#include "../src/arraylist.cpp"
 #include "arraylist.inl"
 
 #endif
