@@ -103,8 +103,8 @@ bool ArrayList<Key,Data, KeyComparator>::remove(Key _x, Data & _recovData)
 			return false;
         } else {
 			_recovData = this->mpt_Data[procurado].info;
-			this->mpt_Data[procurado].id = this->mpt_Data[this->mi_Length].id;
-			this->mpt_Data[procurado].info = this->mpt_Data[this->mi_Length].info;
+			this->mpt_Data[procurado].id = this->mpt_Data[this->mi_Length-1].id;
+			this->mpt_Data[procurado].info = this->mpt_Data[this->mi_Length-1].info;
 			this->mi_Length--;
 			return true;
 		}
@@ -181,7 +181,7 @@ bool SortedArrayList<Key, Data, KeyComparator>::remove(Key _x, Data & _recovData
         auto procurado(0);
         procurado = SortedArrayList::_search(_x);
         if (procurado == this->mi_Length) {
-            throw std::invalid_argument("[SortedArrayList::remove]: Elemento a ser removido não foi encontrado\n");
+            cerr << "[SortedArrayList::remove]: Elemento a ser removido não foi encontrado\n";
             return false;
         } else {
             _recovData = this->mpt_Data[procurado].info;
